@@ -1,0 +1,2 @@
+# squaggle
+Boggle in go.
