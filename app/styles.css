@@ -1,23 +1,125 @@
+.sono-regular {
+  font-family: "Sono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MONO" 1;
+}
+
+/* What does ::after box-sizing: box-content do? */
+
+body {
+    background-color: #afafaf;
+    font-family: sono-regular, Arial, sans-serif;
+}
+
 .main-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
     justify-content: center;
+    justify-items: center;
     align-items: center;
     height: 100vh;
+    max-width: 100vw;
     margin: 0;
-    font-family: cursive;
+}
+
+.in-game-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.letter-board-static-wrap {
+    border: 1px solid #282828;
+    background-color: #afafaf;
 }
 
 .letter-board {
+    aspect-ratio: 1 / 1;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    border: 5px dotted #C1121F;
-    background-color: #C1121F;
-    color: #FdF0D5;
+    grid-template-rows: repeat(4, 1fr);
+    color: #282828;
+    margin: 0;
+    transition: transform 1s ease-in-out;
 }
 
 .letter {
-    border: 2px outset #FdF0D5;
-    background-color: #780000;
-    padding: 10px;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    aspect-ratio: 1 / 1;
+    border: 1px solid #282828;
+    border-radius: 100%;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 1em;
+    margin: 0.25em;
+    transition: transform 1s ease-in-out;
+    /* transition: order 2s ease; */
+}
+
+#letter-0 {
+    order: 0;
+}
+
+#letter-1 {
+    order: 1;
+}
+
+#letter-2 {
+    order: 2;
+}
+
+#letter-3 {
+    order: 3;
+}
+
+#letter-4 {
+    order: 4;
+}
+
+#letter-5 {
+    order: 5;
+}
+
+#letter-6 {
+    order: 6;
+}
+
+#letter-7 {
+    order: 7;
+}
+
+#letter-8 {
+    order: 8;
+}
+
+#letter-9 {
+    order: 9;
+}
+
+#letter-10 {
+    order: 10;
+}
+
+#letter-11 {
+    order: 11;
+}
+
+#letter-12 {
+    order: 12;
+}
+
+#letter-13 {
+    order: 13;
+}
+
+#letter-14 {
+    order: 14;
+}
+
+#letter-15 {
+    order: 15;
 }

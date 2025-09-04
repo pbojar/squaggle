@@ -1,31 +1,62 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Squaggle!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
     <div class="main-grid">
-      <div class="letter-board">
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
-        <div class="letter"><span>A</span></div>
+      <div class="game-options">
+        <!--Will hold elements to select: 3x3/4x4/5x5, enable timer, new game.-->
+        <input class="styled-button" type="button" title="New Game" value="New Game" disabled>
+      </div>
+      <div class="game-wrap">
+        <div class="in-game-controls">
+          <!--Score | Words Remaining | Randomize/Align Orientation:Rotate Board-->
+          <div class="score">
+            0 points
+          </div>
+          <div class="words-remaining">
+            X words remaining
+          </div>
+          <div class="in-game-buttons-wrap">
+            <input type="button" title="Randomize Letters" value="?" id="randomize-button">
+            <input type="button" title="Align Letters" value="|A|" id="align-button">
+            <input type="button" title="Rotate Board" value="R" id="rotate-button">
+          </div>
+        </div>
+        <div class="letter-board-static-wrap">
+          <div class="letter-board" id="letter-board">
+            <div class="letter" id="letter-0"><span>A</span></div>
+            <div class="letter" id="letter-1"><span>B</span></div>
+            <div class="letter" id="letter-2"><span>C</span></div>
+            <div class="letter" id="letter-3"><span>D</span></div>
+            <div class="letter" id="letter-4"><span>E</span></div>
+            <div class="letter" id="letter-5"><span>F</span></div>
+            <div class="letter" id="letter-6"><span>G</span></div>
+            <div class="letter" id="letter-7"><span>H</span></div>
+            <div class="letter" id="letter-8"><span>Qu</span></div>
+            <div class="letter" id="letter-9"><span>J</span></div>
+            <div class="letter" id="letter-10"><span>K</span></div>
+            <div class="letter" id="letter-11"><span>L</span></div>
+            <div class="letter" id="letter-12"><span>M</span></div>
+            <div class="letter" id="letter-13"><span>N</span></div>
+            <div class="letter" id="letter-14"><span>O</span></div>
+            <div class="letter" id="letter-15"><span>P</span></div>
+          </div>
+        </div>
+        <div class="in-game-hints">
+          <!--Shapes with edges = len(word) with num words remaining-->
+        </div>
+      </div>
+      <div>
+        <!--Will hold elements that appear after (below or to the right) of the game board.-->
       </div>
     </div>
   </body>
