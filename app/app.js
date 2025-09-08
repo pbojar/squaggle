@@ -1,9 +1,12 @@
-const letterBoard = document.getElementById("letter-board");
+var letterBoard = document.getElementById("letter-board");
+var letters = document.getElementsByClassName("letter");
+var baseAngles = new Array(letters.length).fill(0);
+
+const letterBoardWrap = document.getElementById("letter-board-wrap");
+const newGameButton = document.getElementById("new-game-button");
 const rotateButton = document.getElementById("rotate-button");
-const randomizeButton = document.getElementById("randomize-button");
+const randomizeButton = document.getElementById("scramble-button");
 const alignButton = document.getElementById("align-button");
-const letters = document.getElementsByClassName("letter")
-let baseAngles = new Array(letters.length).fill(0)
 
 function getRandomAngle(angles) {
     return angles[Math.floor(Math.random() * angles.length)]
@@ -58,3 +61,33 @@ function handleAlign() {
 }
 
 alignButton.addEventListener("click", handleAlign)
+
+function genRandStr(len) {
+    const chars = 'abcdefghijklmnopqrstuvwxyz'
+    let str = '';
+    for (let i = 0; i < len; i++) {
+        str += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return str
+}
+
+function handleNewGame() {
+    let sz = document.querySelector('input[name="board-size"]:checked').value;
+    let newChars = genRandStr(sz * sz);
+    let newLetterBoard = `<div class="letter-board board-${sz}x${sz}" id="letter-board">\n`;
+    for (let i = 0; i < newChars.length; i++) {
+        if (newChars[i] === 'q') {
+            newLetterBoard += `<div class="letter" data-idx="${i}"><span>qu</span></div>\n`;
+        } else {
+            newLetterBoard += `<div class="letter" data-idx="${i}"><span>${newChars[i]}</span></div>\n`;
+        }
+    }
+    newLetterBoard += '</div>';
+    letterBoardWrap.innerHTML = newLetterBoard;
+    letterBoard = document.getElementById("letter-board");
+    letters = document.getElementsByClassName("letter");
+    baseAngles = new Array(letters.length).fill(0);
+    angle = 0;
+}
+
+newGameButton.addEventListener("click", handleNewGame)

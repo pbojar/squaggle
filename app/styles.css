@@ -14,9 +14,9 @@ body {
     font-family: sono-regular, Arial, sans-serif;
 }
 
-.main-grid {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+.main-wrap {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     justify-items: center;
     align-items: center;
@@ -30,7 +30,7 @@ body {
     justify-content: space-between;
 }
 
-.letter-board-static-wrap {
+.letter-board-wrap {
     border: 1px solid #282828;
     background-color: #afafaf;
 }
@@ -38,11 +38,24 @@ body {
 .letter-board {
     aspect-ratio: 1 / 1;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
     color: #282828;
     margin: 0;
     transition: transform 1s ease-in-out;
+}
+
+.board-3x3 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.board-4x4 {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.board-5x5 {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
 }
 
 .letter {
@@ -51,75 +64,63 @@ body {
     align-items: center; /* Centers vertically */
     aspect-ratio: 1 / 1;
     border: 1px solid #282828;
-    border-radius: 100%;
+    border-radius: 45%;
     font-size: 1.5em;
     text-align: center;
+    text-transform: capitalize;
     padding: 1em;
     margin: 0.25em;
     transition: transform 1s ease-in-out;
-    /* transition: order 2s ease; */
 }
 
-#letter-0 {
-    order: 0;
+.board-size-switch {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    background: #ddd;
+    border-radius: 20px;
 }
 
-#letter-1 {
-    order: 1;
+.board-size-switch input[type="radio"] {
+  display: none;
 }
 
-#letter-2 {
-    order: 2;
+.board-size-switch label {
+  flex: 1;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  z-index: 2;
+  color: #666;
+  font-size: 14px;
 }
 
-#letter-3 {
-    order: 3;
+.board-size-switch input:checked + label {
+  color: #fff;
 }
 
-#letter-4 {
-    order: 4;
+.board-size-switch .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33.33%;
+  height: 100%;
+  background: #4caf50;
+  border-radius: 20px;
+  transition: 0.3s ease;
+  z-index: 1;
 }
 
-#letter-5 {
-    order: 5;
+#board-switch-3x3:checked ~ .slider {
+  left: 0;
 }
 
-#letter-6 {
-    order: 6;
+#board-switch-4x4:checked ~ .slider {
+  left: 33.33%;
 }
 
-#letter-7 {
-    order: 7;
-}
-
-#letter-8 {
-    order: 8;
-}
-
-#letter-9 {
-    order: 9;
-}
-
-#letter-10 {
-    order: 10;
-}
-
-#letter-11 {
-    order: 11;
-}
-
-#letter-12 {
-    order: 12;
-}
-
-#letter-13 {
-    order: 13;
-}
-
-#letter-14 {
-    order: 14;
-}
-
-#letter-15 {
-    order: 15;
+#board-switch-5x5:checked ~ .slider {
+  left: 66.66%;
 }
