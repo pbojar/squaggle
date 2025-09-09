@@ -25,6 +25,12 @@ body {
     margin: 0;
 }
 
+.new-game-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .in-game-controls {
     display: flex;
     justify-content: space-between;
@@ -73,21 +79,28 @@ body {
     transition: transform 1s ease-in-out;
 }
 
-.board-size-switch {
+.option-switch {
     display: flex;
     align-items: center;
     position: relative;
-    width: 150px;
     height: 40px;
     background: #ddd;
     border-radius: 20px;
 }
 
-.board-size-switch input[type="radio"] {
+.option-switch.board-size {
+  width: 150px;
+}
+
+.option-switch.timer {
+  width: 200px;
+}
+
+.option-switch input[type="radio"] {
   display: none;
 }
 
-.board-size-switch label {
+.option-switch label {
   flex: 1;
   text-align: center;
   line-height: 40px;
@@ -97,20 +110,27 @@ body {
   font-size: 14px;
 }
 
-.board-size-switch input:checked + label {
+.option-switch input:checked + label {
   color: #fff;
 }
 
-.board-size-switch .slider {
+.option-switch .slider {
   position: absolute;
   top: 0;
   left: 0;
-  width: 33.33%;
   height: 100%;
   background: #4caf50;
   border-radius: 20px;
   transition: 0.3s ease;
   z-index: 1;
+}
+
+.option-switch.board-size .slider {
+  width: 33.33%;
+}
+
+.option-switch.timer .slider {
+  width: 25%;
 }
 
 #board-switch-3x3:checked ~ .slider {
@@ -123,4 +143,20 @@ body {
 
 #board-switch-5x5:checked ~ .slider {
   left: 66.66%;
+}
+
+#timer-switch-untimed:checked ~ .slider {
+  left: 0;
+}
+
+#timer-switch-1min:checked ~ .slider {
+  left: 25%;
+}
+
+#timer-switch-3min:checked ~ .slider {
+  left: 50%;
+}
+
+#timer-switch-5min:checked ~ .slider {
+  left: 75%;
 }
