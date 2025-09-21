@@ -7,85 +7,83 @@
     "MONO" 1;
 }
 
-/* What does ::after box-sizing: box-content do? */
-
 body {
-    background-color: #afafaf;
-    font-family: sono-regular, Arial, sans-serif;
+  background-color: #afafaf;
+  font-family: sono-regular, Arial, sans-serif;
 }
 
 .main-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    height: 100vh;
-    max-width: 100vw;
-    margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 100vw;
+  margin: 0;
 }
 
 .new-game-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .in-game-controls {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .letter-board-wrap {
-    border: 1px solid #282828;
-    background-color: #afafaf;
+  border: 1px solid #282828;
+  background-color: #afafaf;
 }
 
 .letter-board {
-    aspect-ratio: 1 / 1;
-    display: grid;
-    color: #282828;
-    margin: 0;
-    transition: transform 1s ease-in-out;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  color: #282828;
+  margin: 0;
+  transition: transform 1s ease-in-out;
 }
 
 .board-3x3 {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 
 .board-4x4 {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 }
 
 .board-5x5 {
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 
 .letter {
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    aspect-ratio: 1 / 1;
-    border: 1px solid #282828;
-    border-radius: 45%;
-    font-size: 1.5em;
-    text-align: center;
-    text-transform: capitalize;
-    padding: 1em;
-    margin: 0.25em;
-    transition: transform 1s ease-in-out;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  aspect-ratio: 1 / 1;
+  border: 1px solid #282828;
+  border-radius: 45%;
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 1em;
+  margin: 0.25em;
+  transition: transform 1s ease-in-out;
 }
 
 .option-switch {
-    display: flex;
-    align-items: center;
-    position: relative;
-    height: 40px;
-    background: #ddd;
-    border-radius: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 40px;
+  background: #ddd;
+  border-radius: 20px;
 }
 
 .option-switch.board-size {
